@@ -28,35 +28,35 @@ const buildQueryString = (filters: Record<string, string | undefined>) => {
 
 export const intranetApi = {
   getHome() {
-    return http.get<HomeResponse["data"]>("/api/home");
+    return http.get<HomeResponse["data"]>("/home");
   },
   getHomeWidgets() {
-    return http.get<HomeWidgetsResponse["data"]>("/api/home/widgets");
+    return http.get<HomeWidgetsResponse["data"]>("/home/widgets");
   },
   getApplications() {
-    return http.get<ApplicationsResponse["data"]>("/api/applications");
+    return http.get<ApplicationsResponse["data"]>("/applications");
   },
   getStaffDirectory() {
-    return http.get<StaffDirectoryResponse["data"]>("/api/staff-directory");
+    return http.get<StaffDirectoryResponse["data"]>("/staff-directory");
   },
   getOrganizationChart() {
-    return http.get<OrganizationChartResponse["data"]>("/api/organization-chart");
+    return http.get<OrganizationChartResponse["data"]>("/organization-chart");
   },
   getDepartments() {
-    return http.get<DepartmentsResponse["data"]>("/api/departments");
+    return http.get<DepartmentsResponse["data"]>("/departments");
   },
   getLeadership() {
-    return http.get<LeadershipResponse["data"]>("/api/leadership");
+    return http.get<LeadershipResponse["data"]>("/leadership");
   },
   getOnboarding() {
-    return http.get<OnboardingResponse["data"]>("/api/onboarding");
+    return http.get<OnboardingResponse["data"]>("/onboarding");
   },
   getNewsAnnouncements() {
-    return http.get<NewsAnnouncementsResponse["data"]>("/api/news-announcements");
+    return http.get<NewsAnnouncementsResponse["data"]>("/news-announcements");
   },
   getResources(filters: ResourceFilters = {}) {
     return http.get<ResourcesResponse["data"]>(
-      `/api/resources${buildQueryString({
+      `/resources${buildQueryString({
         departmentId: filters.departmentId,
         resourceType: filters.resourceType,
       })}`,

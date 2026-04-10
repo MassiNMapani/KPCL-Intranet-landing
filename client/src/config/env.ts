@@ -16,8 +16,8 @@ const parseEnvironment = (value: string | undefined): AppEnvironment => {
 };
 
 export const env = {
-  appName: import.meta.env.VITE_APP_NAME ?? "KPCL Intranet",
+  appName: import.meta.env.VITE_APP_NAME ?? "Power Company Portal",
   environment: parseEnvironment(import.meta.env.VITE_APP_ENV),
   supportEmail: import.meta.env.VITE_SUPPORT_EMAIL ?? "helpdesk@kpcl.example",
-  apiBaseUrl: import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080",
+  apiBaseUrl: import.meta.env.VITE_API_BASE_URL ?? "/api",
 };

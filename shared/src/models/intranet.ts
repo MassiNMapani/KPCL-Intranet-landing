@@ -111,7 +111,7 @@ export type OrganizationNodeRecord = {
 export type HomeWelcomeContent = {
   title: string;
   message: string;
-  operationalNote: string;
+  operationalNote?: string;
 };
 
 export type HomeUpdatesContent = {

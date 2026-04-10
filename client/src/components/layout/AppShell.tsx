@@ -7,23 +7,26 @@ export const AppShell = () => {
     <div className="app-shell">
       <header className="topbar">
         <div className="topbar-brand">
-          <p className="eyebrow">Enterprise Intranet</p>
-          <h1>{siteConfig.title}</h1>
+          <img
+            className="topbar-logo"
+            src="/branding/kanona-logo.png"
+            alt="Kanona Power Company Limited"
+          />
+          <div className="topbar-brand-copy">
+            <p className="topbar-kicker">Kanona</p>
+            <h1>{siteConfig.title}</h1>
+            <p className="topbar-subtitle">{siteConfig.companyName}</p>
+          </div>
         </div>
-        <p className="topbar-copy">{siteConfig.tagline}</p>
+        <div className="topbar-meta">
+          <p className="topbar-user-label">Internal Access</p>
+          <p className="topbar-copy">{siteConfig.tagline}</p>
+        </div>
       </header>
       <GlobalNav />
       <main className="page-content">
         <Outlet />
       </main>
-      <footer className="footer">
-        <p>{siteConfig.footerText}</p>
-        <p>
-          {/* Future audit hook: footer actions can emit page access audit events here. */}
-          {/* Future monitoring hook: add client-side web vitals and API failure indicators here. */}
-          Support, incident routing, and backend origins should stay environment-driven.
-        </p>
-      </footer>
     </div>
   );
 };

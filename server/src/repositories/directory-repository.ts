@@ -4,13 +4,14 @@ import type {
   OrganizationNodeRecord,
   StaffMemberRecord,
 } from "@shared/models/intranet";
+import { csvStaffMembers } from "./mock/csv-staff-members";
 import { departments, leadership, organizationNodes, staffMembers } from "./mock/mock-data";
 
 export const directoryRepository = {
   async listStaff(limit?: number): Promise<StaffMemberRecord[]> {
     // Future Microsoft Graph / HR integration: merge governed identity and HR attributes here.
     // Future PostgreSQL repository implementation: load directory rows from employees and departments tables here.
-    return typeof limit === "number" ? staffMembers.slice(0, limit) : staffMembers;
+    return typeof limit === "number" ? csvStaffMembers.slice(0, limit) : csvStaffMembers;
   },
   async listDepartments(limit?: number): Promise<DepartmentRecord[]> {
     // Future PostgreSQL repository implementation: hydrate department summaries and leaders from normalized tables here.

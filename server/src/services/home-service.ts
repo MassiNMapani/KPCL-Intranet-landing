@@ -29,11 +29,9 @@ export const homeService = {
     // Future monitoring hook: emit section-level freshness and latency metrics here.
     return {
       welcome: {
-        title: "Welcome to KPCL",
+        title: "Welcome to Kanona Power Company Limited",
         message:
-          "Access governed applications, staff information, onboarding resources, and company updates through a single operational entry point.",
-        operationalNote:
-          "Prepared for SSO, RBAC, Microsoft Graph, SharePoint, logging, monitoring, and future audit controls.",
+          "This is where you can access internal applications, staff information, onboarding resources and company-wide news and announcements. You will find links to the internal applications and our licensed applications.",
       },
       quickActions: applications.slice(0, 3),
       applicationLauncher: applications,

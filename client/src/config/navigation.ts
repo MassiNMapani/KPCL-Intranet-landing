@@ -16,29 +16,29 @@ export const navigationItems: NavItem[] = [
     path: "/staff-directory",
     description: "Find people and teams.",
   },
-  {
-    label: "Organization Chart",
-    path: "/organization-chart",
-    description: "Review reporting structure.",
-  },
-  {
-    label: "Onboarding",
-    path: "/onboarding",
-    description: "Get new starters productive quickly.",
-  },
-  {
-    label: "Departments",
-    path: "/departments",
-    description: "Explore business functions.",
-  },
-  {
-    label: "Leadership",
-    path: "/leadership",
-    description: "See company leadership.",
-  },
-  {
-    label: "News & Announcements",
-    path: "/news-announcements",
-    description: "Company updates and events.",
-  },
+  // {
+  //   label: "Organization Chart",
+  //   path: "/organization-chart",
+  //   description: "Review reporting structure.",
+  // },
+  // {
+  //   label: "Onboarding",
+  //   path: "/onboarding",
+  //   description: "Get new starters productive quickly.",
+  // },
+  // {
+  //   label: "Departments",
+  //   path: "/departments",
+  //   description: "Explore business functions.",
+  // },
+  // {
+  //   label: "Leadership",
+  //   path: "/leadership",
+  //   description: "See company leadership.",
+  // },
+  // {
+  //   label: "News & Announcements",
+  //   path: "/news-announcements",
+  //   description: "Company updates and events.",
+  // },
 ];

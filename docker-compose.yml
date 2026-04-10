@@ -44,6 +44,7 @@ services:
       CORS_ORIGIN: http://localhost:${FRONTEND_PORT:-4173}
       DB_RETRY_ATTEMPTS: ${DB_RETRY_ATTEMPTS:-30}
       DB_RETRY_DELAY_MS: ${DB_RETRY_DELAY_MS:-2000}
+      REQUIRE_DATABASE_ON_STARTUP: "true"
       SHUTDOWN_GRACE_MS: ${SHUTDOWN_GRACE_MS:-10000}
     depends_on:
       postgres:

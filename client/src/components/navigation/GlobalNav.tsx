@@ -13,7 +13,6 @@ export const GlobalNav = () => {
           }
         >
           <span className="nav-link-label">{item.label}</span>
-          <small>{item.description}</small>
         </NavLink>
       ))}
     </nav>

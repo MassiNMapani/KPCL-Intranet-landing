@@ -15,8 +15,9 @@ const StaffDirectoryPage = () => {
     <div className="page-stack">
       <PageHero
         title="Staff Directory"
-        description="A governed people view with a single integration surface for Microsoft Graph and HR data."
-        aside="Future permission check: enforce scoped directory visibility based on employee role and privacy policy."
+        description="The staff directory is a searchable list of people across the company. It helps you find employees, their roles, departments, and contact details."
+        showPanel
+        panelImageSrc="/branding/staff-directory-hero.png"
       />
       <PageDataState
         isLoading={isLoading}
@@ -30,7 +31,9 @@ const StaffDirectoryPage = () => {
             <InfoCard key={person.id} title={person.name} eyebrow={person.departmentName}>
               <p>{person.title}</p>
               <p>{person.email}</p>
-              <p className="meta-copy">{person.location}</p>
+              {person.location && person.location !== "Company Directory" ? (
+                <p className="meta-copy">{person.location}</p>
+              ) : null}
             </InfoCard>
           ))}
         </div>

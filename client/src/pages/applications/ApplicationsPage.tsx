@@ -22,8 +22,8 @@ const ApplicationsPage = () => {
     <div className="page-stack">
       <PageHero
         title="Applications"
-        description="Trusted launch points for internal systems, structured for future policy-based visibility and SSO enforcement."
-        aside="Future RBAC hook: filter application visibility by role claims and entitlement checks in the data layer."
+        description="For internal business operations and employee services, please access the applications below."
+        showPanel
       />
       <section className="page-section">
         <SectionHeader

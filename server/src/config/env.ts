@@ -22,8 +22,26 @@ const parseEnvironment = (value: string | undefined): ServerEnvironment => {
   return "local";
 };
 
+const parseBoolean = (value: string | undefined, fallback: boolean): boolean => {
+  if (!value) {
+    return fallback;
+  }
+
+  if (value === "true") {
+    return true;
+  }
+
+  if (value === "false") {
+    return false;
+  }
+
+  return fallback;
+};
+
+const nodeEnv = parseEnvironment(process.env.APP_ENV);
+
 export const env = {
-  nodeEnv: parseEnvironment(process.env.APP_ENV),
+  nodeEnv,
   port: parseNumber(process.env.API_PORT ?? process.env.PORT, 8080),
   corsOrigin: process.env.CORS_ORIGIN ?? "http://localhost:4173",
   dbHost: process.env.DB_HOST ?? "localhost",
@@ -33,6 +51,10 @@ export const env = {
   dbName: process.env.DB_NAME ?? process.env.POSTGRES_DB ?? "kpcl_intranet",
   dbRetryAttempts: parseNumber(process.env.DB_RETRY_ATTEMPTS, 30),
   dbRetryDelayMs: parseNumber(process.env.DB_RETRY_DELAY_MS, 2000),
+  requireDatabaseOnStartup: parseBoolean(
+    process.env.REQUIRE_DATABASE_ON_STARTUP,
+    nodeEnv !== "local",
+  ),
   shutdownGraceMs: parseNumber(process.env.SHUTDOWN_GRACE_MS, 10000),
   databaseUrl:
     process.env.DATABASE_URL ??

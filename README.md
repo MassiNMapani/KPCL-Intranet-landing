@@ -241,6 +241,12 @@ Local endpoints:
 - Frontend: `http://localhost:4173`
 - Backend API: `http://localhost:8080`
 
+Local startup behavior:
+
+- The API starts without PostgreSQL by default so mock-backed routes such as the application catalog remain available during frontend development.
+- Set `REQUIRE_DATABASE_ON_STARTUP=true` when you want local startup to block until PostgreSQL is reachable.
+- The frontend should call the API through same-origin `/api`; the Vite dev server proxies that path to `http://localhost:8080`.
+
 ### Run with Docker
 
 This repository includes a production-style Docker deployment with three services:
@@ -325,6 +331,10 @@ docker compose logs -f frontend
 docker compose logs -f postgres
 docker compose restart backend
 ```
+
+Backend runtime note:
+
+- The backend runtime uses `tsx` against `server/src/server.ts`, which keeps Docker and local `npm run start --workspace server` aligned with the development execution path.
 
 Environment variables used by Docker:
 

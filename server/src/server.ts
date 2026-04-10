@@ -61,7 +61,17 @@ process.on("SIGTERM", () => {
 try {
   // auth here: startup dependency checks should remain infrastructure-only and not rely on request identity.
   // metrics here: register startup dependency timing once monitoring is wired in.
-  await waitForDatabase(env.dbRetryAttempts, env.dbRetryDelayMs);
+  if (env.requireDatabaseOnStartup) {
+    await waitForDatabase(env.dbRetryAttempts, env.dbRetryDelayMs);
+  } else {
+    try {
+      await waitForDatabase(1, env.dbRetryDelayMs);
+    } catch (error) {
+      console.warn("Starting KPCL intranet API without a ready database", {
+        message: error instanceof Error ? error.message : "Unknown database error",
+      });
+    }
+  }
 
   server = app.listen(env.port, () => {
     // Future structured logging hook: emit service-start logs here.
